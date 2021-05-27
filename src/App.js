@@ -36,7 +36,6 @@ export default function App () {
       taskIds: newTaskIds,
     }
 // newColumn = {id:column1, title:, taskIds: [task2, task3, task4, task1]}
-    console.log(state.columns)
     const newState = {
       ...state, // spread syntax to maintian properties of of InitialData.tasks
       columns: {
