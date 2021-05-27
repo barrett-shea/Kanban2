@@ -8,7 +8,6 @@ export default function App () {
   const [state, setState] = useState(InitialData)
   
   const onDragEnd = result => {     //used to persist new order after drag
-  console.log(result)
     const {destination, source, draggableId} = result
 
     if (!destination) {
@@ -22,10 +21,13 @@ export default function App () {
       return
     }
 
-    const column = InitialData.columns[source.droppableId]
+    const column = state.columns[source.droppableId]
     const newTaskIds = Array.from(column.taskIds)
-    newTaskIds.splice(source.index, 1)
-    newTaskIds.splice(destination.index, 0, draggableId)
+
+    newTaskIds.splice(result.source.index, 1)
+    
+    newTaskIds.splice(result.destination.index, 0, draggableId)
+
 
     const newColumn = {
       ...column,
@@ -33,13 +35,14 @@ export default function App () {
     }
 
     const newState = {
-      ...InitialData,
+      ...state,
       columns: {
-        ...InitialData.columns,
+        ...state.columns,
       },
       [newColumn.id]: newColumn, 
     }
-
+    
+    
     setState(newState)
   };
   
