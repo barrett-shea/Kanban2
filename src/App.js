@@ -22,28 +22,32 @@ export default function App () {
     }
 
     const column = state.columns[source.droppableId]
+// InitialData.columns['column1'] = column = {id:column1, title:, taskIds: [task1, task2, task3, task4]}
     const newTaskIds = Array.from(column.taskIds)
-
+// newTaskIds = [task1, task2, task3, task4]
     newTaskIds.splice(result.source.index, 1)
     
     newTaskIds.splice(result.destination.index, 0, draggableId)
-
+// example: moving top of list to bottom 
+//newTaskIds = [task2, task3, task4, task1]
 
     const newColumn = {
       ...column,
       taskIds: newTaskIds,
     }
-
+// newColumn = {id:column1, title:, taskIds: [task2, task3, task4, task1]}
+    console.log(state.columns)
     const newState = {
-      ...state,
+      ...state, // spread syntax to maintian properties of of InitialData.tasks
       columns: {
-        ...state.columns,
-        [newColumn.id]: newColumn,
-      }, 
+        ...state.columns, //not needed for only one column
+        [newColumn.id]: newColumn, //overrides existing column-- 'column1': {id, title, taskIds:[newTaskIds]}
+      }, //since only 1 column, InitialData.columnOrder is not updated in newState
     }
     
     
     setState(newState)
+// Save updated state (list order) to database here
   };
   
   return (
