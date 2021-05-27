@@ -5,9 +5,10 @@ import {DragDropContext} from 'react-beautiful-dnd'
 
 
 export default function App () {
-  const [order, setOrder] = useState(InitialData)
+  const [state, setState] = useState(InitialData)
   
   const onDragEnd = result => {     //used to persist new order after drag
+  console.log(result)
     const {destination, source, draggableId} = result
 
     if (!destination) {
@@ -44,9 +45,9 @@ export default function App () {
   
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-        {InitialData.columnOrder.map(columnId => {
-          const column= InitialData.columns[columnId];
-          const tasks= column.taskIds.map(taskId=> InitialData.tasks[taskId]);
+        {state.columnOrder.map(columnId => {
+          const column= state.columns[columnId];
+          const tasks= column.taskIds.map(taskId=> state.tasks[taskId]);
 
         return <Column key={column.id} column={column} tasks={tasks} />
         })}
