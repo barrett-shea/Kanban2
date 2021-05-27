@@ -38,8 +38,8 @@ export default function App () {
       ...state,
       columns: {
         ...state.columns,
-      },
-      [newColumn.id]: newColumn, 
+        [newColumn.id]: newColumn,
+      }, 
     }
     
     
