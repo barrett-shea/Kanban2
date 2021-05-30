@@ -12,10 +12,25 @@ const InitialData = {
       title: 'To Do',
       taskIds: ['task1', 'task2', 'task3', 'task4'],
     },
+    'column2': {
+      id: 'column2',
+      title: 'In Progress',
+      taskIds: [],
+    },
+    'column3': {
+      id: 'column3',
+      title: 'Testing',
+      taskIds: [],
+    },
+    'column4': {
+      id: 'column4',
+      title: 'Done',
+      taskIds: [],
+    },
   },
 
   // Needed to reorder columns
-  columnOrder: ['column1'], 
+  columnOrder: ['column1', 'column2', 'column3', 'column4'], 
 
 };
 

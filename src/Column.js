@@ -4,7 +4,7 @@ import {Droppable} from 'react-beautiful-dnd'
 
 export default function Column (props) {
   return (
-    <div className='border rounded p-2 m-2 '>
+    <div className='border rounded p-2 m-2 min-vh-20'>
       <h1>{props.column.title}</h1>
       <Droppable droppableId = {props.column.id}>
         {provided => (
