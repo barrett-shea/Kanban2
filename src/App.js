@@ -15,15 +15,15 @@ export default function App () {
     }
 
     if (
-      destination.droppableId === source.droppableId &&
-      destination.index === source.index
+      result.destination.droppableId === result.source.droppableId &&
+      result.destination.index === result.source.index
     ) {
       return
     }
 
-    const start = state.columns[source.droppableId]
+    const start = state.columns[result.source.droppableId]
 // InitialData.columns['column1'] = start = {id:column1, title:, taskIds: [task1, task2, task3, task4]}
-    const finish = state.columns[destination.droppableId]
+    const finish = state.columns[result.destination.droppableId]
 
     if (start === finish) {
       const newTaskIds = Array.from(start.taskIds)
@@ -45,13 +45,13 @@ export default function App () {
           ...state.columns, //not needed for only one column
           [newColumn.id]: newColumn, //overrides existing column-- 'column1': {id, title, taskIds:[newTaskIds]}
         }, //since only 1 column, InitialData.columnOrder is not updated in newState
-      }
+      } 
     
     
         setState(newState)
 // Save updated state (list order) to database here
         return
-      }
+      } 
 
     //Moving from one column to another
     const startTaskIds = Array.from(start.taskIds)
@@ -78,7 +78,6 @@ export default function App () {
     }
 
     setState(newState)
-
   };
   
   return (
