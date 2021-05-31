@@ -8,7 +8,7 @@ export default function Column (props) {
       <h1>{props.column.title}</h1>
       <Droppable droppableId = {props.column.id}>
         {(provided, snapshot) => (
-          <div className='flex-grow-1'
+          <div className={`flex-grow-1 ${snapshot.isDraggingOver ? 'bg-success' : 'bg-white'}`}
           ref={provided.innerRef}
           {...provided.droppableProps}
           isDraggingOver={snapshot.isDraggingOver}
