@@ -2,26 +2,33 @@ import React, {useState, useRef} from "react";
 import {Form, Button, Container} from 'react-bootstrap'
 
 export default function AddTask () {
-  const [add, toAdd] = useState('')
-  const addToDo = useRef() 
+  const [value, setValue] = useState({
+    input: '',
+    submitted: false
+  })
+
+  function handleChange(e) {
+    setValue({input: {value}})
+  }
 
   function handleSubmit(e) {
-    console.log(addToDo.current.value)
+  
   }
 
   return (
     <Container className='w-25'>
-    <Form onSubmit={handleSubmit}>
-      <Form.Group id='addToDo'>
-        <Form.Control type='text'  ref={addToDo} placeholder='Start Typing Here' />
-      </Form.Group>
+    <form onSubmit={handleSubmit}>
+        <input 
+          type='text'
+          value={value.input} 
+          placeholder='Start Typing...' onChange={handleChange} />
     <Button 
       variant="primary"
       type='submit'
     >
         Add Task
     </Button>
-    </Form>
+    </form>
     </Container>
   )
 }
