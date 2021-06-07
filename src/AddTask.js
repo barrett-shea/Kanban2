@@ -1,18 +1,21 @@
-import React, {useState, useRef} from "react";
+import React, {useState} from "react";
 import {Form, Button, Container} from 'react-bootstrap'
 
-export default function AddTask () {
-  const [value, setValue] = useState({
-    input: '',
-    submitted: false
-  })
+export default function AddTask (props) {
+  const [value, setValue] = useState('')
 
   function handleChange(e) {
-    setValue({input: {value}})
+    setValue(e.target.value)
   }
 
-  function handleSubmit(e) {
-  
+  function handleSubmit() {
+    newTask = props.tasks.concat()
+    setState(newTask)
+
+    newList = props.columns.column1.taskIds.concat({value})
+    setState(newList)
+
+    setValue('')
   }
 
   return (
@@ -20,7 +23,7 @@ export default function AddTask () {
     <form onSubmit={handleSubmit}>
         <input 
           type='text'
-          value={value.input} 
+          value={value} 
           placeholder='Start Typing...' onChange={handleChange} />
     <Button 
       variant="primary"

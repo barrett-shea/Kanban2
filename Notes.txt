@@ -2,3 +2,7 @@
 // https://nimblewebdeveloper.com/blog/convert-react-class-to-function-component
 
 // https://www./freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/
+
+// https://www.freecodecamp.org/news/learn-bootstrap-4-in-30-minute-by-building-a-landing-page-website-guide-for-beginners-f64e03833f33/
+
+// https://www.robinwieruch.de/react-add-item-to-list/
