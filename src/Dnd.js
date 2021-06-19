@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Column from './Column' 
 import {DragDropContext} from 'react-beautiful-dnd'
 import InitialData from './InitialData'
+import AddTask from './AddTask'
 
 export default function Dnd() {
   
@@ -81,6 +82,7 @@ export default function Dnd() {
   };
 
   return (
+  <>
   <DragDropContext onDragEnd={onDragEnd}>
       <div className='d-flex'>
         {state.columnOrder.map(columnId => {
@@ -91,5 +93,7 @@ export default function Dnd() {
         })}
       </div>
     </DragDropContext>
+    <AddTask state={state} setState={setState}/>
+    </>
   )
 }
