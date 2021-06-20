@@ -7,7 +7,7 @@ export default function App () {
   
   return (
     <>
-      <h1>Kanban Board</h1>
+      <h1 className='p-2'>Kanban Board</h1>
       <Dnd />
     </>
   );
