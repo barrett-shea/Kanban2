@@ -4,6 +4,7 @@ import {DragDropContext} from 'react-beautiful-dnd'
 import InitialData from './InitialData'
 import AddTask from './AddTask'
 
+
 export default function Dnd() {
   
   const [state, setState] = useState(InitialData)
@@ -91,6 +92,7 @@ export default function Dnd() {
 
         return <Column key={column.id} column={column} tasks={tasks} />
         })}
+
       </div>
     </DragDropContext>
     <AddTask state={state} setState={setState}/>

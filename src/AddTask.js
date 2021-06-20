@@ -13,9 +13,10 @@ export default function AddTask ({ state, setState }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (value) { //prevent adding blank tasks
     const id = uuidv4()
     state.tasks[id] =  {id: id, content: value}
-    
+  
     const newTaskIds = Array.from(state.columns['column1'].taskIds)
     newTaskIds.push(id)
     
@@ -33,6 +34,7 @@ export default function AddTask ({ state, setState }) {
 
     setState(newState)
     setValue('') // cleanup input
+    }
   }
 
   return (
