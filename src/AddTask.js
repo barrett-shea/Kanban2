@@ -7,10 +7,12 @@ export default function AddTask ({ state, setState }) {
   const [value, setValue] = useState('')
   
   function handleChange(e) {
+    e.preventDefault();
     setValue(e.target.value)
   }
 
-  function handleSubmit() {
+  function handleSubmit(e) {
+    e.preventDefault();
     const id = uuidv4()
     state.tasks[id] =  {id: id, content: value}
     
