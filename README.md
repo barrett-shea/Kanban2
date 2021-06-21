@@ -8,7 +8,7 @@ Shareable Kanban planner for personal or team use. Utilizing an intuitize drag-a
 
 ### Languages + Frameworks
 
-Javascript, React (Functional Components), React-Bootstrap (CSS Framework), React Beaautiful Dnd (Drag and Drop framework), HTML & CSS 
+Javascript, React (Functional Components), [React-Bootstrap](https://react-bootstrap.github.io) (CSS Framework), [React Beautiful Dnd](https://github.com/atlassian/react-beautiful-dnd) (Drag and Drop framework), HTML & CSS 
 
 ### Technologies
 
