@@ -1,16 +1,16 @@
 const InitialData = {
   tasks: {
-    'task1': { id: 'task1', content: 'Take out garbage'},
-    'task2': { id: 'task2', content: 'Clean Dishes'},
-    'task3': { id: 'task3', content: 'Make Bed'},
-    'task4': { id: 'task4', content: 'Cook Dinner'},
+    'task1': { id: 'task1', content: 'Drag and Drop a Task!'},
+    'task2': { id: 'task2', content: 'Add New Tasks Below'},
+    'task3': { id: 'task3', content: 'Keeps Track of Progress'},
+    'task4': { id: 'task4', content: 'Task Removal Coming Soon!'},
   },
 
   columns: {
     'column1': {
       id: 'column1',
       title: 'To Do',
-      taskIds: ['task1', 'task2', 'task3', 'task4'],
+      taskIds: ['task1', 'task2', 'task3'],
     },
     'column2': {
       id: 'column2',
@@ -20,7 +20,7 @@ const InitialData = {
     'column3': {
       id: 'column3',
       title: 'Testing',
-      taskIds: [],
+      taskIds: ['task4'],
     },
     'column4': {
       id: 'column4',
