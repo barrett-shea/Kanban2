@@ -3,6 +3,7 @@ import Column from './Column'
 import {DragDropContext} from 'react-beautiful-dnd'
 import InitialData from './InitialData'
 import AddTask from './AddTask'
+import TaskCounter from './TaskCounter'
 
 
 export default function Dnd() {
@@ -84,6 +85,7 @@ export default function Dnd() {
 
   return (
   <>
+  <TaskCounter state={state}/>
   <DragDropContext onDragEnd={onDragEnd}>
       <div className='d-flex'>
         {state.columnOrder.map(columnId => {

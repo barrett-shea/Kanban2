@@ -1,13 +1,12 @@
 import React from "react";
 import Dnd from './Dnd'
-import AddTask from './AddTask'
 
 
 export default function App () {
   
   return (
     <>
-      <h1 className='p-2'>Kanban Board</h1>
+      <h1 className='m-3'>Kanban Board</h1>
       <Dnd />
     </>
   );

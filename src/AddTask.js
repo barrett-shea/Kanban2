@@ -38,21 +38,22 @@ export default function AddTask ({ state, setState }) {
   }
 
   return (
-    <Container className='w-25'>
-    <form>
-        <input 
-          type='text'
+    <Container className='w-25 mt-4'>
+    <Form className='d-flex flex-row'>
+        <Form.Control 
           value={value} 
           placeholder='Start Typing...' 
-          onChange={handleChange} />
+          onChange={handleChange} 
+        />
     <Button 
       variant="primary"
       type='submit'
       onClick={handleSubmit}
+      className='text-nowrap mx-1'
     >
         Add Task
     </Button>
-    </form>
+    </Form>
     </Container>
   )
 }
