@@ -29,7 +29,7 @@ export default function AddTask ({ state, setState }) {
         columns: {
           ...state.columns,
           [newToDo.id]: newToDo, 
-        }, 
+        } 
       } 
 
     setState(newState)

@@ -3,7 +3,7 @@ const InitialData = {
     'task1': { id: 'task1', content: 'Drag and Drop a Task!'},
     'task2': { id: 'task2', content: 'Add New Tasks Below'},
     'task3': { id: 'task3', content: 'Keeps Track of Progress'},
-    'task4': { id: 'task4', content: 'Task Removal Coming Soon!'},
+    'task4': { id: 'task4', content: 'New features to be released soon!'},
   },
 
   columns: {

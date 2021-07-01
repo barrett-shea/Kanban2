@@ -1,19 +1,40 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {Draggable} from 'react-beautiful-dnd'
 import {Button} from 'react-bootstrap'
 
-export default function Task({ task, index, columnDetails }) {
+export default function Task({ task, index, columnDetails, state, setState }) {
   // task = state.tasks['task1'] 
   // index = index of task in a column. Changes when moved.
+  // taskDetails = state.tasks[task]
+  
   function handleRemove(e) {
     e.preventDefault()
     //remove task from column.taskIds
-    let updateColumn = columnDetails.taskIds.filter(task)
-    console.log(updateColumn)
+    let updateColumnIds = columnDetails.taskIds.filter((id) => id !== task.id)
+    
+    const newColumn = {
+      ...state.columns[columnDetails.id],
+      taskIds: updateColumnIds,
+    }
 
     //remove task from tasks
-
+    console.log(JSON.stringify(state.tasks))
+    delete state.tasks[task.id]
     
+    const newTasks = {
+
+    }
+
+    const newState = {
+      ...state,
+      columns: {
+        ...state.columns,
+        [columnDetails.id]: newColumn
+      },
+    }
+    
+    setState(newState)
+    console.log(JSON.stringify(state.tasks))
   }
   
   return (

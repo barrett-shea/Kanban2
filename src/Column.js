@@ -2,7 +2,7 @@ import React from 'react'
 import Task from './Task'
 import {Droppable} from 'react-beautiful-dnd'
 
-export default function Column ({ column, tasks }) {
+export default function Column ({ column, tasks, state, setState }) {
   return (
     <div className='border rounded w-25 m-3 d-flex flex-column'>
       <h1 className='p-2 text-white bg-primary'>{column.title}</h1>
@@ -13,7 +13,7 @@ export default function Column ({ column, tasks }) {
           {...provided.droppableProps}
           isDraggingOver={snapshot.isDraggingOver}
           >
-            {tasks.map((task, index) => (<Task key={task.id} task= {task} index={index} columnDetails={column}/>))}
+            {tasks.map((task, index) => (<Task state={state} setState={setState} key={task.id} task= {task} index={index} columnDetails={column}/>))}
             {provided.placeholder}
           </div>
         )}
