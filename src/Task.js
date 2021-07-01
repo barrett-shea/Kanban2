@@ -18,12 +18,8 @@ export default function Task({ task, index, columnDetails, state, setState }) {
     }
 
     //remove task from tasks
-    console.log(JSON.stringify(state.tasks))
-    delete state.tasks[task.id]
     
-    const newTasks = {
-
-    }
+    delete state.tasks[task.id]
 
     const newState = {
       ...state,
@@ -34,7 +30,6 @@ export default function Task({ task, index, columnDetails, state, setState }) {
     }
     
     setState(newState)
-    console.log(JSON.stringify(state.tasks))
   }
   
   return (
