@@ -5,11 +5,10 @@ import {Button} from 'react-bootstrap'
 export default function Task({ task, index, columnDetails, state, setState }) {
   // task = state.tasks['task1'] 
   // index = index of task in a column. Changes when moved.
-  // taskDetails = state.tasks[task]
   
   function handleRemove(e) {
     e.preventDefault()
-    //remove task from column.taskIds
+    //Step 1: remove task from column.taskIds (remove from screen)
     let updateColumnIds = columnDetails.taskIds.filter((id) => id !== task.id)
     
     const newColumn = {
@@ -17,7 +16,7 @@ export default function Task({ task, index, columnDetails, state, setState }) {
       taskIds: updateColumnIds,
     }
 
-    //remove task from tasks
+    //Step 2: remove task from tasks (free up space/memory)
     
     delete state.tasks[task.id]
 
