@@ -38,15 +38,14 @@ export default function Dnd() {
 //newTaskIds = [task2, task3, task4, task1]
 
       const newColumn = {
-        ...start,
-        taskIds: newTaskIds,
+        ...finish, taskIds: newTaskIds,
       }
 // newColumn = {id:column1, title:, taskIds: [task2, task3, task4, task1]}
       const newState = {
         ...state, // spread syntax to maintian properties of of InitialData.tasks
         columns: {
           ...state.columns, //not needed for only one column
-          [newColumn.id]: newColumn, //overrides existing column-- 'column1': {id, title, taskIds:[newTaskIds]}
+          [finish.id]: newColumn, //overrides existing column-- 'column1': {id, title, taskIds:[newTaskIds]}
         }, //since only 1 column, InitialData.columnOrder is not updated in newState
       } 
     
@@ -75,8 +74,8 @@ export default function Dnd() {
       ...state,
       columns: {
         ...state.columns,
-        [newStart.id]: newStart,
-        [newFinish.id]: newFinish,
+        [start.id]: newStart,
+        [finish.id]: newFinish,
       },
     }
 
@@ -94,10 +93,9 @@ export default function Dnd() {
 
         return <Column key={column.id} column={column} tasks={tasks} />
         })}
-
       </div>
     </DragDropContext>
     <AddTask state={state} setState={setState}/>
-    </>
+  </>
   )
 }

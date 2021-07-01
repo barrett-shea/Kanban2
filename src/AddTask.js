@@ -38,7 +38,7 @@ export default function AddTask ({ state, setState }) {
   }
 
   return (
-    <Container className='w-25 mt-4'>
+    <Container className='w-50 mt-4'>
     <Form className='d-flex flex-row'>
         <Form.Control 
           value={value} 
