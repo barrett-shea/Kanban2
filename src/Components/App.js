@@ -1,5 +1,5 @@
 import React from "react";
-import Dnd from './Dnd'
+import Dnd from '../Components/Dnd/Dnd'
 
 export default function App () {
   return (
