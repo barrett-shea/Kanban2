@@ -1,15 +1,15 @@
 import React from "react"
-import Signup from "./Signup"
+import Signup from "./Authentication/Signup"
 import { Container } from "react-bootstrap"
-import { AuthProvider } from "../contexts/AuthContext"
+import { AuthProvider } from "./Contexts/AuthContext"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import Dashboard from "./Dashboard"
-import Login from "./Login"
-import PrivateRoute from "./PrivateRoute"
-import ForgotPassword from "./ForgotPassword"
-import UpdateProfile from "./UpdateProfile"
+import Dashboard from "./Authentication/Dashboard"
+import Login from "./Authentication/Login"
+import PrivateRoute from "./Authentication/PrivateRoute"
+import ForgotPassword from "./Authentication/ForgotPassword"
+import UpdateProfile from "./Authentication/UpdateProfile"
 
-function App() {
+export default function App2() {
   return (
     <Container
       className="d-flex align-items-center justify-content-center"
@@ -31,5 +31,3 @@ function App() {
     </Container>
   )
 }
-
-export default App
