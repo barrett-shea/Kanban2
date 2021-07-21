@@ -5,13 +5,13 @@ import 'firebase/auth'
 console.log(process.env.NODE_ENV)
 console.log(process.env.REACT_APP_FIREBASE_API_KEY)
 const app= firebase.initializaApp({
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+  apiKey: "AIzaSyC9shyVJuKnK5LhLQ7wYwhcvUyukJXm2AY",
+  authDomain: "kanban-39624.firebaseapp.com",
+  projectId: "kanban-39624",
+  storageBucket: "kanban-39624.appspot.com",
+  messagingSenderId: "439317602817",
+  appId: "1:439317602817:web:3919cd3dc648eaa4a91600",
+  measurementId: "G-SJH8K480C1"
 })
 
 export const auth = app.auth()

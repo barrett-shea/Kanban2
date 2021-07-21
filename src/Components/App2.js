@@ -1,9 +1,8 @@
 import React from "react"
 import Signup from "./Authentication/Signup"
-import { Container } from "react-bootstrap"
-import { AuthProvider } from "./Contexts/AuthContext"
+import { AuthProvider } from "../Contexts/AuthContext"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import Dashboard from "./Authentication/Dashboard"
+import Profile from "./Dnd/Profile"
 import Login from "./Authentication/Login"
 import PrivateRoute from "./Authentication/PrivateRoute"
 import ForgotPassword from "./Authentication/ForgotPassword"
@@ -11,11 +10,6 @@ import UpdateProfile from "./Authentication/UpdateProfile"
 
 export default function App2() {
   return (
-    <Container
-      className="d-flex align-items-center justify-content-center"
-      style={{ minHeight: "100vh" }}
-    >
-      <div className="w-100" style={{ maxWidth: "400px" }}>
         <Router>
           <AuthProvider>
             <Switch>
@@ -27,7 +21,5 @@ export default function App2() {
             </Switch>
           </AuthProvider>
         </Router>
-      </div>
-    </Container>
   )
 }
