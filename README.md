@@ -12,8 +12,8 @@ Javascript, React (Functional Components), [React-Bootstrap](https://react-boots
 
 ### Technologies
 
-Stackblitz (online Visual Studio Code) & Firebase
+Stackblitz (Online Visual Studio Code) & Firebase
 
 ### About
 
-Project built for personal use and leearning experience. Known limitations: 1) Board layout cannot be saved. 2) Tasks cannot be removed/edited. Possible solutions: 1) Connect app to Firestore (Google CLoud NoSQL Database) and save to database on state update. 2) Update state when user selects "X" on task. User authentication can be added by adding Firebase Authentication features (see RSVP project for details).
+Project built for personal use and leearning experience. Known limitations: 1) Board layout cannot be saved. 2) Tasks cannot be edited. Possible solutions: 1) Connect app to Firestore (Google CLoud NoSQL Database) and save to database on state update. 2) Update state when user clicks a d task and types in a new description. User authentication can be added by adding Firebase Authentication features (see RSVP project for details).
