@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Card, Button, Alert } from "react-bootstrap"
 import { useAuth } from "../../Contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
+import CenteredContainer from './CenteredContainer'
 
 export default function Profile() {
   const [error, setError] = useState("")
@@ -20,7 +21,7 @@ export default function Profile() {
   }
 
   return (
-    <>
+    <CenteredContainer>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Profile</h2>
@@ -36,6 +37,6 @@ export default function Profile() {
           Log Out
         </Button>
       </div>
-    </>
+    </CenteredContainer>
   )
 }

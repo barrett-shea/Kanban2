@@ -1,10 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
 
-
-console.log(process.env.NODE_ENV)
-console.log(process.env.REACT_APP_FIREBASE_API_KEY)
-const app= firebase.initializaApp({
+const app= firebase.initializeApp({
   apiKey: "AIzaSyC9shyVJuKnK5LhLQ7wYwhcvUyukJXm2AY",
   authDomain: "kanban-39624.firebaseapp.com",
   projectId: "kanban-39624",
