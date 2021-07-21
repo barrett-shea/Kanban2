@@ -6,7 +6,7 @@
     "@babel/runtime": "7.14.0",
     "@popperjs/core": "2.9.2",
     "bootstrap": "5.0.1",
-    "firebase": "^8.7.0",
+    "firebase": "8.7.1",
     "react": "17.0.2",
     "react-beautiful-dnd": "13.1.0",
     "react-bootstrap": "1.6.0",
