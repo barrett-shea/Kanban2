@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {Form, Button, Container} from 'react-bootstrap'
 import { v4 as uuidv4 } from 'uuid';
+import { database } from "../../firebase"
 
 export default function AddTask ({ state, setState }) {
   
@@ -33,6 +34,7 @@ export default function AddTask ({ state, setState }) {
       } 
 
     setState(newState)
+    //update firestore
     setValue('') // cleanup input
     }
   }

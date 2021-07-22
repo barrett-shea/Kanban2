@@ -33,6 +33,9 @@ export default function Profile() {
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
+        <Button variant='link' as={Link} to='/'>
+          Return Home
+        </Button>
         <Button variant="link" onClick={handleLogout}>
           Log Out
         </Button>
