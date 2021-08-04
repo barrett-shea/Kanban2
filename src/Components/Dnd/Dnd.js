@@ -6,10 +6,10 @@ import TaskCounter from './TaskCounter'
 import useData from '../hooks/useData'
 import InitialData from './InitialData'
 
-export default function Dnd({userId}) {
+export default function Dnd() {
   
-  const [state, setState] = useState(InitialData)
-  //const {state, setState} = useData(userId)
+  // const [state, setState] = useState(InitialData)
+  const {state, setState} = useData()
   const onDragEnd = result => {     //used to persist new order after drag
     const {destination, source, draggableId} = result
 
