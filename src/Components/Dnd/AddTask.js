@@ -32,9 +32,17 @@ export default function AddTask ({ state, setState }) {
           [newToDo.id]: newToDo, 
         } 
       } 
-
+    //Do you need topdate state if compnent pulling data from backend?
     setState(newState)
-    //update firestore
+    // db.collection(`users/${userId}/boards/${boardId}/tasks`)
+    //   .doc(uid)
+    //   .set({title,  priority , description, todos: [], dateAdded: firebase.firestore.FieldValue.serverTimestamp() })
+
+    // db.collection(`users/${userId}/boards/${boardId}/columns`)
+    //   .doc(column)
+    //   .update({taskIds: firebase.firestore.FieldValue.arrayUnion(uid)})
+
+
     setValue('') // cleanup input
     }
   }

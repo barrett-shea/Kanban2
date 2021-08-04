@@ -1,21 +1,19 @@
 import React, {useState} from "react";
 import Column from './Column' 
 import {DragDropContext} from 'react-beautiful-dnd'
-import InitialData from './InitialData'
 import AddTask from './AddTask'
 import TaskCounter from './TaskCounter'
+import useData from '../hooks/useData'
+import InitialData from './InitialData'
 
-
-export default function Dnd() {
+export default function Dnd({userId}) {
   
   const [state, setState] = useState(InitialData)
-  
+  //const {state, setState} = useData(userId)
   const onDragEnd = result => {     //used to persist new order after drag
     const {destination, source, draggableId} = result
 
-    if (!destination) {
-      return
-    }
+    if (!destination) return
 
     if (
       result.destination.droppableId === result.source.droppableId &&
@@ -51,7 +49,8 @@ export default function Dnd() {
     
     
         setState(newState)
-// Save updated state (list order) to database here
+        // db.collection(`users/${userId}/boards/${boardId}/columns`).doc(startColumn.id)
+        // .update({taskIds: newTaskIds})
         return
       } 
 
@@ -80,6 +79,12 @@ export default function Dnd() {
     }
 
     setState(newState)
+
+    // db.collection(`users/${userId}/boards/${boardId}/columns`).doc(newStart.id)
+    //   .update({taskIds: startTaskIDs})
+
+    // db.collection(`users/${userId}/boards/${boardId}/columns`).doc(newFinish.id)
+    //   .update({taskIds: finishTaskIDs})
   };
 
   return (

@@ -13,6 +13,8 @@ export function AuthProvider({ children }) {
 
   function signup(email, password) {
     return auth.createUserWithEmailAndPassword(email, password)
+    // add .then to create board using InitialData
+
   }
 
   function login(email, password) {

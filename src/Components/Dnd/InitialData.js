@@ -34,6 +34,27 @@ const InitialData = {
 
 };
 
+//Fire db functions on signup to create initial board
+ 
+    // for (let task in InitialData.tasks) {
+    //   database.tasks.add({
+    //     taskId: InitialData.tasks[task].id,
+    //     content: InitialData.tasks[task].content,
+    //     userId: currentUser.uid,
+    //     createdAt: database.getCurrentTimestamp(),
+    //   })
+    // }
+
+    // for (let column in InitialData.columns) {
+    //   database.columns.add({
+    //     columnId: InitialData.columns[column].id,
+    //     title: InitialData.columns[column].title,
+    //     taskIds: InitialData.columns[column].taskIds,
+    //     userId: currentUser.uid,
+    //     createdAt: database.getCurrentTimestamp(),  
+    //   })
+    // }
+
 export default InitialData;
 
 
