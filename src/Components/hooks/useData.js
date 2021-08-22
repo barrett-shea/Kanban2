@@ -1,58 +1,59 @@
 import { useState, useEffect } from 'react'
 import { database } from "../../firebase"
 import { useAuth } from "../../Contexts/AuthContext"
+import InitialData from '../Dnd/InitialData'
 
+//read data from database and send to state in Dnd component 
 
-export default function useData() {
+const useData = (currentUser) => {
   const [tasks, setTasks] = useState(null)
   const [columns, setColumns] = useState(null)
-  const [final, setFinal] = useState(null)
+  const [final, setFinal] = useState(InitialData)
   
-  const {currentUser} = useAuth()
-  
-  useEffect(() => { //gather task data from backend
+  useEffect(() => {
     return database.tasks
       .where('userId', '==', currentUser.uid)
         .onSnapshot(snap => {
           const documents = []
           snap.forEach(d => {
-            documents.push({ id: d.id, ...d.data() })
+            documents.push(d.id)
           })
-        setTasks(documents)
-        console.log(tasks)
+          setTasks(documents)
+          
       })
-  }, [currentUser]) //if value in bracket changes, run effect function
+    }, [currentUser])
   
-  useEffect(() => { //gether column data from backend
-    return database.collection.columns
-      .where('userId', '==', currentUser.uid)
-        .onSnapshot(snap => {
-          const documents = []
-          snap.forEach(d => {
-            documents.push({ id: d.id, ...d.data() })
-          })
-          setColumns(documents)
-          console.log(columns)
+    useEffect(() => {
+      return database.columns
+        .where('userId', '==', currentUser.uid)
+          .onSnapshot(snap => {
+            const documents = []
+            snap.forEach(d => {
+              documents.push(d.id)
+            })
+            setColumns(documents)
+            
         })
-}, [currentUser])  
+      }, [currentUser])
+  
 
-useEffect(() => { //combine/rearrange data into object
-  if (tasks && columns) {
-      const finalObject = {}
+    //set columnOrder and add to final object. return finalas state.
 
-      finalObject.tasks = {}
-      finalObject.columns = {}
-      
-      finalObject.columnOrder = []
-      const columnOrder = ['column1', 'column2', 'column3', 'column4']
-      finalObject.columnOrder.push(columnOrder)
+  const finalObject = InitialData
 
-      tasks.forEach(t => finalObject.tasks[t.id] = t)
-      columns.forEach(c => finalObject.columns[c.id] = c)
+  // finalObject.tasks = {}
+  // finalObject.columns = {}
 
-      setFinal(finalObject)
-  }
-}, [tasks, columns])
-  console.log(JSON.stringify(final))
+  // finalObject.columnOrder = ['column1', 'column2', 'column3', 'column4']
+
+  // tasks.forEach(t => finalObject.tasks[t.id] = t)
+  // columns.forEach(c => finalObject.columns[c.id] = c)
+  // console.log(f)
+
+  // setFinal(finalObject)
+  
+  
   return { state: final, setState: setFinal } //state displayed in Dnd component
 }
+
+export default useData

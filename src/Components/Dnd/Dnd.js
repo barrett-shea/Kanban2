@@ -5,11 +5,15 @@ import AddTask from './AddTask'
 import TaskCounter from './TaskCounter'
 import useData from '../hooks/useData'
 import InitialData from './InitialData'
+import { useAuth } from "../../Contexts/AuthContext"
 
 export default function Dnd() {
+  const {currentUser} = useAuth()
   
-  // const [state, setState] = useState(InitialData)
-  const {state, setState} = useData()
+  //const [state, setState] = useState(InitialData)
+  const {state, setState} = useData(currentUser)
+  //console.log(JSON.stringify(state))
+  
   const onDragEnd = result => {     //used to persist new order after drag
     const {destination, source, draggableId} = result
 
