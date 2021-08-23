@@ -15,7 +15,7 @@ const Dnd = () => {
   
   const {state, setState} = useData(currentUser)
   
-  //console.log(`Dnd State: ${JSON.stringify(state)}`)
+  console.log(`Dnd State: ${JSON.stringify(state)}`)
   
   const onDragEnd = result => {     //used to persist new order after drag
     const {destination, source, draggableId} = result
@@ -98,6 +98,9 @@ const Dnd = () => {
 
   return (
   <>
+  {state ?
+    (
+    <>
   <TaskCounter state={state}/>
   <DragDropContext onDragEnd={onDragEnd}>
       <div className='d-flex'>
@@ -111,6 +114,11 @@ const Dnd = () => {
     </DragDropContext>
     <AddTask state={state} setState={setState}/>
   </>
+  )
+  :
+  <div>loading</div>
+}
+</>
   )
 }
 

@@ -52,7 +52,7 @@ const useData = (currentUser) => {
   }, [tasks, columns])
   
   console.log(`final: ${JSON.stringify(final)}`)
-  return { state: InitialData, setState: setFinal }
+  return { state: final, setState: setFinal }
   
 }
 

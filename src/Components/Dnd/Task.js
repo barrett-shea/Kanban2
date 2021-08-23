@@ -30,7 +30,7 @@ export default function Task({ task, index, columnDetails, state, setState }) {
     
     setState(newState)
   }
-  
+  console.log(task)
   return (
     <Draggable draggableId={task.id} index={index}>
       {(provided, snapshot) =>(
