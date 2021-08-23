@@ -6,16 +6,12 @@ import TaskCounter from './TaskCounter'
 import useData from '../hooks/useData'
 import { useAuth } from "../../Contexts/AuthContext"
 import { database } from "../../firebase"
-import InitialData from './InitialData'
+import { Spinner } from 'react-bootstrap'
 
 const Dnd = () => {
   const {currentUser} = useAuth()
   
-  //const [state, setState] = useState(InitialData)
-  
   const {state, setState} = useData(currentUser)
-  
-  //console.log(`Dnd State: ${JSON.stringify(state)}`)
   
   const onDragEnd = result => {     //used to persist new order after drag
     const {destination, source, draggableId} = result
@@ -56,7 +52,7 @@ const Dnd = () => {
     
       setState(newState)
       
-      console.log(start.id)
+      
       //updates db, then crashes dnd
       database.columns.doc(start.id).update({taskIds: newTaskIds})
         return
@@ -116,7 +112,7 @@ const Dnd = () => {
   </>
   )
   :
-  <div>loading</div>
+  <Spinner animation="border" variant="primary"/>
 }
 </>
   )
