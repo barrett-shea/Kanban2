@@ -51,7 +51,7 @@ const useData = (currentUser) => {
     }
   }, [tasks, columns])
   
-  console.log(`final: ${JSON.stringify(final)}`)
+  //console.log(`final: ${JSON.stringify(final)}`)
   return { state: final, setState: setFinal }
   
 }

@@ -15,7 +15,7 @@ const Dnd = () => {
   
   const {state, setState} = useData(currentUser)
   
-  console.log(`Dnd State: ${JSON.stringify(state)}`)
+  //console.log(`Dnd State: ${JSON.stringify(state)}`)
   
   const onDragEnd = result => {     //used to persist new order after drag
     const {destination, source, draggableId} = result
