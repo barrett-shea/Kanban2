@@ -4,15 +4,18 @@ import {DragDropContext} from 'react-beautiful-dnd'
 import AddTask from './AddTask'
 import TaskCounter from './TaskCounter'
 import useData from '../hooks/useData'
-import InitialData from './InitialData'
 import { useAuth } from "../../Contexts/AuthContext"
+import { database } from "../../firebase"
+import InitialData from './InitialData'
 
-export default function Dnd() {
+const Dnd = () => {
   const {currentUser} = useAuth()
   
   //const [state, setState] = useState(InitialData)
+  
   const {state, setState} = useData(currentUser)
-  //console.log(JSON.stringify(state))
+  
+  //console.log(`Dnd State: ${JSON.stringify(state)}`)
   
   const onDragEnd = result => {     //used to persist new order after drag
     const {destination, source, draggableId} = result
@@ -51,10 +54,9 @@ export default function Dnd() {
         }, //since only 1 column, InitialData.columnOrder is not updated in newState
       } 
     
-    
-        setState(newState)
-        // db.collection(`users/${userId}/boards/${boardId}/columns`).doc(startColumn.id)
-        // .update({taskIds: newTaskIds})
+      setState(newState)
+      //updates db, then crashes dnd
+      // database.columns.doc('8ug4AWhQd4zoCOuCy9hu').update({taskIds: newTaskIds})
         return
       } 
 
@@ -83,12 +85,14 @@ export default function Dnd() {
     }
 
     setState(newState)
+    //remove .where
+    // database.columns
+    //   .where('userId', '==', currentUser.uid)
+    //     .doc(newStart.id).update({taskIds: startTaskIDs})
 
-    // db.collection(`users/${userId}/boards/${boardId}/columns`).doc(newStart.id)
-    //   .update({taskIds: startTaskIDs})
-
-    // db.collection(`users/${userId}/boards/${boardId}/columns`).doc(newFinish.id)
-    //   .update({taskIds: finishTaskIDs})
+    // database.columns
+    //   .where('userId', '==', currentUser.uid)
+    //     .doc(newFinish.id).update({taskIds: finishTaskIDs})
   };
 
   return (
@@ -108,3 +112,5 @@ export default function Dnd() {
   </>
   )
 }
+
+export default Dnd
