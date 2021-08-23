@@ -55,10 +55,13 @@ const Dnd = () => {
       } 
     
       setState(newState)
+      
+      console.log(start.id)
       //updates db, then crashes dnd
-      // database.columns.doc('8ug4AWhQd4zoCOuCy9hu').update({taskIds: newTaskIds})
+      database.columns.doc(start.id).update({taskIds: newTaskIds})
         return
       } 
+
 
     //Moving from one column to another
     const startTaskIds = Array.from(start.taskIds)
@@ -85,14 +88,12 @@ const Dnd = () => {
     }
 
     setState(newState)
-    //remove .where
-    // database.columns
-    //   .where('userId', '==', currentUser.uid)
-    //     .doc(newStart.id).update({taskIds: startTaskIDs})
+    
+    database.columns
+      .doc(newStart.id).update({taskIds: startTaskIds})
 
-    // database.columns
-    //   .where('userId', '==', currentUser.uid)
-    //     .doc(newFinish.id).update({taskIds: finishTaskIDs})
+    database.columns
+      .doc(newFinish.id).update({taskIds: finishTaskIds})
   };
 
   return (

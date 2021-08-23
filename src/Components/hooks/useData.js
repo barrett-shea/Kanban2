@@ -16,7 +16,7 @@ const useData = (currentUser) => {
         .onSnapshot(snap => {
           const documents = {}
           snap.forEach(d => {
-            documents[d.data().taskId] = d.data()
+            documents[d.data().id] = d.data()
           })
           setTasks(documents)
           
@@ -29,7 +29,7 @@ const useData = (currentUser) => {
         .onSnapshot(snap => {
           const documents = {}
           snap.forEach(d => {
-            documents[d.data().columnId] = d.data()
+            documents[d.data().id] = d.data()
           })
           setColumns(documents)
           
