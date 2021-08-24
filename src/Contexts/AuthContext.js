@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react"
 import { auth } from "../firebase"
+import createBoard from '../Components/Dnd/InitialData'
 
 const AuthContext = React.createContext()
 
@@ -13,8 +14,12 @@ export function AuthProvider({ children }) {
 
   function signup(email, password) {
     return auth.createUserWithEmailAndPassword(email, password)
-    // add .then to create board using InitialData
-
+      .then((userCredential) => {
+        // Signed in 
+        var currentUser = userCredential.user;
+        //console.log(currentUser.uid)
+        // createBoard(currentUser)
+      })
   }
 
   function login(email, password) {

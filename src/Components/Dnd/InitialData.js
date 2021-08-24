@@ -34,6 +34,11 @@ const InitialData = {
 
 };
 
+export default function createBoard(currentUser) {
+  console.log(currentUser)
+}
+
+
 //Fire db functions on signup to create initial board
  
     // for (let task in InitialData.tasks) {
