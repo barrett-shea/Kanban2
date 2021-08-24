@@ -1,6 +1,7 @@
 import React from 'react'
 import {Draggable} from 'react-beautiful-dnd'
 import {Button} from 'react-bootstrap'
+import { database } from "../../firebase"
 
 export default function Task({ task, index, columnDetails, state, setState }) {
   // task = state.tasks['task1'] 
@@ -29,6 +30,13 @@ export default function Task({ task, index, columnDetails, state, setState }) {
     }
     
     setState(newState)
+    
+    //remove from column
+    database.columns.doc(columnDetails.id)
+      .update({taskIds: updateColumnIds})
+
+    //remove task from database
+    database.tasks.doc(task.id).delete()
   }
   
   return (

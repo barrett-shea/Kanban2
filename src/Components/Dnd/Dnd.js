@@ -53,10 +53,12 @@ const Dnd = () => {
       setState(newState)
       
       
-      //updates db, then crashes dnd
-      database.columns.doc(start.id).update({taskIds: newTaskIds})
-        return
-      } 
+      
+      database.columns.doc(start.id)
+        .update({taskIds: newTaskIds})
+      return
+      
+    } 
 
 
     //Moving from one column to another
@@ -108,7 +110,7 @@ const Dnd = () => {
         })}
       </div>
     </DragDropContext>
-    <AddTask state={state} setState={setState}/>
+    <AddTask state={state} setState={setState} currentUser={currentUser}/>
   </>
   )
   :
