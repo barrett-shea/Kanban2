@@ -14,12 +14,6 @@ export function AuthProvider({ children }) {
 
   function signup(email, password) {
     return auth.createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        // Signed in 
-        var currentUser = userCredential.user;
-        //console.log(currentUser.uid)
-        // createBoard(currentUser)
-      })
   }
 
   function login(email, password) {

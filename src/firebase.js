@@ -14,8 +14,8 @@ const app= firebase.initializeApp({
 
 const firestore = app.firestore()
 export const database = {
-  columns: firestore.collection("columns"),
-  tasks: firestore.collection("tasks"),
+  columns: firestore.collection("users").doc("cgK3TwzdJCRgrP6YiYVv44xBcPj2").collection("columns"),
+  tasks: firestore.collection("users").doc('cgK3TwzdJCRgrP6YiYVv44xBcPj2').collection("tasks"),
   getCurrentTimestamp: firebase.firestore.FieldValue.serverTimestamp,
 }
 
