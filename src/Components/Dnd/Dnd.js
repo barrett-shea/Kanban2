@@ -5,7 +5,7 @@ import AddTask from './AddTask'
 import TaskCounter from './TaskCounter'
 import useData from '../hooks/useData'
 import { useAuth } from "../../Contexts/AuthContext"
-import { database } from "../../firebase"
+import { database, firestore } from "../../firebase"
 import { Spinner } from 'react-bootstrap'
 
 const Dnd = () => {
@@ -54,7 +54,7 @@ const Dnd = () => {
       
       
       
-      database.columns.doc(start.id)
+      firestore.collection("users").doc(currentUser.uid).collection("columns").doc(start.id)
         .update({taskIds: newTaskIds})
       return
       
@@ -87,10 +87,10 @@ const Dnd = () => {
 
     setState(newState)
     
-    database.columns
+    firestore.collection("users").doc(currentUser.uid).collection("columns")
       .doc(newStart.id).update({taskIds: startTaskIds})
 
-    database.columns
+    firestore.collection("users").doc(currentUser.uid).collection("columns")
       .doc(newFinish.id).update({taskIds: finishTaskIds})
   };
 
@@ -106,7 +106,7 @@ const Dnd = () => {
           const column= state.columns[columnId];
           const tasks= column.taskIds.map(taskId=> state.tasks[taskId]);
 
-        return <Column key={column.id} column={column} tasks={tasks} state={state} setState={setState}/>
+        return <Column key={column.id} column={column} tasks={tasks} state={state} setState={setState} currentUser={currentUser}/>
         })}
       </div>
     </DragDropContext>

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Form, Button, Container} from 'react-bootstrap'
 import { v4 as uuidv4 } from 'uuid';
-import { database } from "../../firebase"
+import { database, firestore } from "../../firebase"
 
 
 export default function AddTask ({ state, setState, currentUser }) {
@@ -37,7 +37,7 @@ export default function AddTask ({ state, setState, currentUser }) {
     setState(newState)
     
     //create new task
-    database.tasks.doc(id)
+    firestore.collection("users").doc(currentUser.uid).collection("tasks").doc(id)
       .set({
         id : id,   
         content: value,
@@ -46,7 +46,7 @@ export default function AddTask ({ state, setState, currentUser }) {
       })
     
     //add to column1
-    database.columns.doc('column1')
+    firestore.collection("users").doc(currentUser.uid).collection("columns").doc('column1')
       .update({taskIds: newTaskIds})
 
 

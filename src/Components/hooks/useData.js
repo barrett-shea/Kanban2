@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { database } from "../../firebase"
+import { database, firestore } from "../../firebase"
 import { useAuth } from "../../Contexts/AuthContext"
 import InitialData from '../Dnd/InitialData'
 
@@ -11,8 +11,7 @@ const useData = (currentUser) => {
   const [final, setFinal] = useState(null)
   
   useEffect(() => {
-    return database.tasks
-      .where('userId', '==', currentUser.uid)
+    return firestore.collection("users").doc(currentUser.uid).collection("tasks")
         .onSnapshot(snap => {
           const documents = {}
           snap.forEach(d => {
@@ -24,8 +23,7 @@ const useData = (currentUser) => {
     }, [currentUser])
   
   useEffect(() => {
-    return database.columns
-      .where('userId', '==', currentUser.uid)
+    return firestore.collection("users").doc(currentUser.uid).collection("columns")
         .onSnapshot(snap => {
           const documents = {}
           snap.forEach(d => {

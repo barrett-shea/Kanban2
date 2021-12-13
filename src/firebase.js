@@ -12,10 +12,10 @@ const app= firebase.initializeApp({
   measurementId: "G-SJH8K480C1"
 })
 
-const firestore = app.firestore()
+export const firestore = app.firestore()
 export const database = {
-  columns: firestore.collection("users").doc("cgK3TwzdJCRgrP6YiYVv44xBcPj2").collection("columns"),
-  tasks: firestore.collection("users").doc('cgK3TwzdJCRgrP6YiYVv44xBcPj2').collection("tasks"),
+  //columns: firestore.collection("users").doc("cgK3TwzdJCRgrP6YiYVv44xBcPj2").collection("columns"),
+  //tasks: firestore.collection("users").doc('cgK3TwzdJCRgrP6YiYVv44xBcPj2').collection("tasks"),
   getCurrentTimestamp: firebase.firestore.FieldValue.serverTimestamp,
 }
 
